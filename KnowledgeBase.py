@@ -33,6 +33,7 @@ class KnowledgeBase(object):
         self.sentences.append(sentence)
 
     def check_models(self, k):
-        # print self.model_list[k].model
-        print self.sentences[0].isSatisfiedBy(self.model_list[k].model, self.SymbolTable)
+        # print self.sentences[0].isSatisfiedBy(self.model_list[k].model, self.SymbolTable)
+        print self.model_list[k].model
+        print self.sentences[1].isSatisfiedBy(self.model_list[k].model, self.SymbolTable)
 

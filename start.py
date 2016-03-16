@@ -20,7 +20,7 @@ def ModusPonens():
     KB.add(sentence1)
     KB.add(sentence2)
 
-    KB.check_models(4)
+    KB.check_models(3)
     
     
 
