@@ -31,32 +31,37 @@ def Wumpus():
     KB.add(sentence4)
     KB.add(sentence5)
 
-    # print "Models that satisfy the Knowledge Base:"
-    # models_from_KB = KB.find_KB_models()
-    # print models_from_KB
+    print "Truth Table Enumeration Method"
+    print "Models that satisfy the Knowledge Base:"
+    models_from_KB = KB.find_KB_models()
+    print models_from_KB
 
-    # alpha = negation(p12)
+    alpha = negation(p12)
 
-    # print "Models that satisfy alpha:"
-    # models_from_alpha = KB.verify_alpha(alpha)
-    # print models_from_alpha
+    print "Models that satisfy alpha:"
+    models_from_alpha = KB.verify_alpha(alpha)
+    print models_from_alpha
 
-    # intersection = np.intersect1d(models_from_KB,models_from_alpha)
+    intersection = np.intersect1d(models_from_KB,models_from_alpha)
 
-    # print "Models that satisfy both of the two previous ones"
-    # print intersection
-    # print ""
+    print "Models that satisfy both of the two previous ones"
+    print intersection
+    print ""
 
-    # print "Does KB entail alpha?"
-    # if np.size(intersection) == np.size(models_from_KB):
-    #     print "YES, because Models(KnowledgeBase) is a subset of Models(alpha)"
-    #     print "Thus you can prove that not(P12) is entailed from the Knowledge Base"
-    #     print "Since not(P12) is entailed from the Knowledge Base, one knows that there is not a pit in (1,2)"
-    # else:
-    #     print "NO, because Models(KnowledgeBase) is NOT a subset of Models(alpha)"
+    print "Does KB entail alpha?"
+    if np.size(intersection) == np.size(models_from_KB):
+        print "YES, because Models(KnowledgeBase) is a subset of Models(alpha)"
+        print "Thus you can prove that not( P(1,2) ) is entailed from the Knowledge Base"
+        print "Since not( P(1,2) ) is entailed from the Knowledge Base, one knows that there is not a pit in (1,2)"
+    else:
+        print "NO, because Models(KnowledgeBase) is NOT a subset of Models(alpha)"
 
+    print "\nWalkSAT Method"
+    print "Is there a model that satisfies all sentences after trying 10,000 times?"
     KB.add(unary(p12))
-    KB.test()
+    print "YES" if KB.walk_SAT(.5,10000) else "NO. Since no model was found in the alloted trials, " + \
+    "it is likely that no model exists that satifies all the sentences. Therefore one can conclude " + \
+    "it is most likely that the Know Base entails the alpha. \nThus KB entails not( P(1,2) ) (probably)"
     
 def unary(p):
     return ComplexSentence(0,[p])

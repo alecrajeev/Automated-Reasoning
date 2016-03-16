@@ -47,9 +47,11 @@ def ModusPonens():
 
     print "\nWalkSAT Method"
 
-    KB.add(alpha)
+    KB.add(negation(q))
     print "Is there a model that satisfies all sentences after trying 10,000 times?"
-    print "YES" if KB.walk_SAT(.5,10000) else "NO"
+    print "YES" if KB.walk_SAT(.5,10000) else "NO. Since no model was found in the alloted trials, " + \
+    "it is likely that no model exists that satifies all the sentences. Therefore one can conclude " + \
+    "it is most likely that the Know Base entails the alpha. \nThus KB entails q (probably)"
 
 
 def unary(p):

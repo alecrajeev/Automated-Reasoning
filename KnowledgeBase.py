@@ -8,6 +8,14 @@ import numpy as np
 
 
 class KnowledgeBase(object):
+    """
+    This represents the Knowledge Base object.
+    It contains a python list of sentences.
+    A sentence is a particular object created for this project.
+    It contains a Hash Table that relates a symbol's alphabetical name to a randomly chosen id.
+    It also contains a python list of models, where each element is a particular model and includes all 2^n possible models.
+    A model is an object created for this project that represents one possible set of values for the symbols.
+    """
     def __init__(self):
         self.sentences = [] # will be a list of sentences or clauses
         self.SymbolTable = HashTable(10) # will be a HashTable that relates strings to Symbols
@@ -30,7 +38,7 @@ class KnowledgeBase(object):
 
     def intern(self,name):
         """
-        This places a specific symbol into a HashTable that makes it easier to verify equality
+        This places a specific symbol into a HashTable that makes it easier to verify equality.
         """
 
         k = self.SymbolTable.get(name)
@@ -108,7 +116,8 @@ class KnowledgeBase(object):
                 else:
                     id_of_symbol_chosen = self.get_maximize_satisfied_clauses(list_of_symbol_ids, model)
 
-        return "failure"
+        print "No model was found"
+        return False
 
     def test(self):
         print self.walk_SAT(.5, 1000)
