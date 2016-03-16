@@ -10,15 +10,17 @@ class HashTable(object):
         self.size = table_size
         self.table = [None] * table_size
         self.list_of_ints = []
+        self.key_count = 0
 
 
     def put(self, key):
         index_of_hash_table = self.hash_function(key)
 
-        value = nprand.randint(low=0, high=10000, size=None)
+        value = self.get_random_int()
         # eventually check to make sure this isn't already taken
 
         node = Node(key, value)
+        self.key_count += 1
 
         temp = self.table[index_of_hash_table]
         if temp is None:
@@ -62,6 +64,15 @@ class HashTable(object):
             key_index += self.size
 
         return key_index
+
+    def get_random_int(self):
+        v = nprand.randint(low=0, high=10000, size=None)
+        if v in self.list_of_ints:
+            return self.get_random_int()
+        else:
+            self.list_of_ints.append(v)
+            return v
+
 
     def dump(self):
         for i in xrange(0, self.size):
