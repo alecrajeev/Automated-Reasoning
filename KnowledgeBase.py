@@ -43,14 +43,6 @@ class KnowledgeBase(object):
         """
         self.sentences.append(sentence)
 
-    def test(self):
-        print self.sentences[1].grammar_type
-        print self.sentences[1].sentenceLHS.grammar_type
-        print self.sentences[1].sentenceRHS.grammar_type
-
-        # print self.sentences[1].sentenceRHS.isSatisfiedBy(self.model_list[2].model, self.SymbolTable)
-        print self.sentences[1].isSatisfiedBy(self.model_list[2].model, self.SymbolTable)
-
     def find_KB_models(self):
         """
         This will return a list of the index of every model that satisfies the knowledge base

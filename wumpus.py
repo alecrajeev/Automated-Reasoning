@@ -31,8 +31,6 @@ def Wumpus():
     KB.add(sentence4)
     KB.add(sentence5)
 
-    # KB.test() 
-
     print "Models that satisfy the Knowledge Base:"
     models_from_KB = KB.find_KB_models()
     print models_from_KB
@@ -52,6 +50,8 @@ def Wumpus():
     print "Does KB entail alpha?"
     if np.size(intersection) == np.size(models_from_KB):
         print "YES, because Models(KnowledgeBase) is a subset of Models(alpha)"
+        print "Thus you can prove that not(P12) is entailed from the Knowledge Base"
+        print "Since not(P12) is entailed from the Knowledge Base, one knows that there is not a pit in (1,2)"
     else:
         print "NO, because Models(KnowledgeBase) is NOT a subset of Models(alpha)"
     
