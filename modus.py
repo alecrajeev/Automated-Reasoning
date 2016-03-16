@@ -4,9 +4,6 @@ from Symbol import Symbol
 from HashTable import HashTable
 
 from Sentence import Sentence
-from Implication import Implication
-from Negation import Negation
-
 from ComplexSentence import ComplexSentence
 
 def ModusPonens():
@@ -19,17 +16,17 @@ def ModusPonens():
 
     KB.build_models()
 
-    # sentence1 = ComplexSentence(0,[p])
-    sentence2 = ComplexSentence(4,[ComplexSentence(0,[p]),ComplexSentence(0,[q])])
+    sentence1 = unary(p)
+    sentence2 = implies(p,q)
 
-    # KB.add(sentence1)
+    KB.add(sentence1)
     KB.add(sentence2)
 
     print "Models that satisfy the Knowledge Base:"
     models_from_KB = KB.find_KB_models()
     print models_from_KB
 
-    alpha = ComplexSentence(4,[ComplexSentence(0,[q]),ComplexSentence(0,[p])])
+    alpha = unary(q)
 
     print "Models that satisfy alpha:"
     models_from_alpha = KB.verify(alpha)
@@ -46,8 +43,24 @@ def ModusPonens():
         print "YES, because Models(KnowledgeBase) is a subset of Models(alpha)"
     else:
         print "NO, because Models(KnowledgeBase) is NOT a subset of Models(alpha)"
+
+def unary(p):
+    return ComplexSentence(0,[p])
+
+def negation(p):
+    return ComplexSentence(1, [p])
+
+def conjuntion(p,q):
+    return ComplexSentence(2,[ComplexSentence(0,[p]),ComplexSentence(0,[q])])
+
+def disjuntion(p,q):
+    return ComplexSentence(3,[ComplexSentence(0,[p]),ComplexSentence(0,[q])])
     
-    
+def implies(p,q):
+    return ComplexSentence(4,[ComplexSentence(0,[p]),ComplexSentence(0,[q])])
+
+def biconditional(p,q):
+    return ComplexSentence(5,[ComplexSentence(0,[p]),ComplexSentence(0,[q])])
 
 
 
