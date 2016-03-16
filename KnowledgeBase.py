@@ -13,6 +13,9 @@ class KnowledgeBase(object):
         self.SymbolTable = HashTable(10) # will be a HashTable that relates strings to Symbols
     
     def build_models(self):
+        """
+        This will build every possible model where there are 2^n number of models
+        """
         scount = self.SymbolTable.key_count
         symbol_int_list = self.SymbolTable.list_of_ints
         self.ModelTable = ModelTable(scount, symbol_int_list)
@@ -23,6 +26,10 @@ class KnowledgeBase(object):
 
 
     def intern(self,name):
+        """
+        This places a specific symbol into a HashTable that makes it easier to verify equality
+        """
+
         k = self.SymbolTable.get(name)
         if k == -1:
             self.SymbolTable.put(name)
@@ -30,11 +37,16 @@ class KnowledgeBase(object):
 
 
     def add(self, sentence):
-        # for now a sentence is just a simple atomic symbol
+        """
+        This will add a sentence to the knowledge base.
+        A more complicated sentence like a implication is added also using this.
+        """
         self.sentences.append(sentence)
 
-    def check_models(self):
-        print self.model_list[0].model
+    def find_KB_models(self):
+        """
+        This will return a list of the index of every model that satisfies the knowledge base
+        """
         list_of_verified_models = []
         for i in xrange(0, np.size(self.model_list)):
             check = True
@@ -43,5 +55,13 @@ class KnowledgeBase(object):
                     check = check and self.sentences[j].isSatisfiedBy(self.model_list[i].model, self.SymbolTable)
             if check:
                 list_of_verified_models.append(i)
+        return list_of_verified_models
+
+    def verify(self, sentence_verify):
+        list_of_verified_models = []
+        for i in xrange(0, np.size(self.model_list)):
+            if sentence_verify.isSatisfiedBy(self.model_list[i].model, self.SymbolTable):
+                list_of_verified_models.append(i)
+        
         return list_of_verified_models
 

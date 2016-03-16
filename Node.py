@@ -1,4 +1,7 @@
 class Node(object):
+    """
+    This node is used to traverse the Hash Table becaue it uses separate chaining.
+    """
 
     def __init__(self, key, value):
         self.key = key

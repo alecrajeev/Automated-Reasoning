@@ -5,6 +5,10 @@ from Symbol import Symbol
 
 
 class HashTable(object):
+    """
+    This is the Hash Table object that is used to quickly find a symbol's id.
+    The id is randomly assigned.
+    """
 
     def __init__(self, table_size):
         self.size = table_size
@@ -75,6 +79,9 @@ class HashTable(object):
 
 
     def dump(self):
+        """
+        Prints out all the symbols
+        """
         for i in xrange(0, self.size):
             if not(self.table[i] is None):
                 node = self.table[i]

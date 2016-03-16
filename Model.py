@@ -5,7 +5,6 @@ import numpy as np
 class Model(object):
     """
     This will represent one specific model
-
     """
 
     def __init__(self, model_input):
