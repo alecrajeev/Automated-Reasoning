@@ -44,9 +44,11 @@ def Wumpus():
     print "Can you prove the unicorn is horned?"
     print "YES" if check_alpha(KB, unary(horn)) else "NO"
 
+    KB.test()
+
 def check_alpha(KB, alpha):
     models_from_KB = KB.find_KB_models()
-    models_from_alpha = KB.verify(alpha)
+    models_from_alpha = KB.verify_alpha(alpha)
     intersection = np.intersect1d(models_from_KB,models_from_alpha)
     if np.size(intersection) == np.size(models_from_KB):
         return True

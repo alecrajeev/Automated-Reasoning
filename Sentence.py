@@ -15,7 +15,4 @@ class Sentence(object):
         where = np.where(model == index)[0][0]
         value = model[where][1]
         
-        if value == 1:
-            return 1
-        else:
-            return 0
+        return value

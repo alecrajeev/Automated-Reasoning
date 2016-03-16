@@ -9,9 +9,9 @@ class ComplexSentence(object):
 
     def __init__(self, grammar_type, parts):
         self.grammar_type = grammar_type
-        if self.grammar_type < 2:
+        if self.grammar_type < 2: # unary sentence
             self.sentence = Sentence(parts[0])
-        else:
+        else: # binary sentence
             self.sentenceLHS = parts[0]
             self.sentenceRHS = parts[1]
 

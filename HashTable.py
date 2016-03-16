@@ -1,5 +1,4 @@
 import numpy as np
-import numpy.random as nprand
 from Node import Node
 from Symbol import Symbol
 
@@ -70,7 +69,7 @@ class HashTable(object):
         return key_index
 
     def get_random_int(self):
-        v = nprand.randint(low=0, high=10000, size=None)
+        v = np.random.randint(low=0, high=10000, size=None)
         if v in self.list_of_ints:
             return self.get_random_int()
         else:

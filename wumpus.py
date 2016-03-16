@@ -38,7 +38,7 @@ def Wumpus():
     alpha = negation(p12)
 
     print "Models that satisfy alpha:"
-    models_from_alpha = KB.verify(alpha)
+    models_from_alpha = KB.verify_alpha(alpha)
     print models_from_alpha
 
     intersection = np.intersect1d(models_from_KB,models_from_alpha)
