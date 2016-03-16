@@ -2,23 +2,24 @@ import numpy as np
 from KnowledgeBase import KnowledgeBase
 from Symbol import Symbol
 from Sentence import Sentence
+from Implication import Implication
 from Model import Model
 from HashTable import HashTable
 
 def start():
     KB = KnowledgeBase()
     
-    p = intern(KB,"P")
-    q = intern(KB, "Q")
-    KB.SymbolTable.dump()
-    print KB.SymbolTable.get(p.name)
+    p = KB.intern("P")
+    q = KB.intern("Q")
 
+    sentence1 = Sentence(p)
+    sentence2 = Implication(p,q)
 
-def intern(KB,name):
-    k = KB.SymbolTable.get(name)
-    if k == -1:
-        KB.SymbolTable.put(name)
-    return Symbol(name)
+    KB.add(sentence1)
+    KB.add(sentence2)
+
+    
+    
 
 
 
