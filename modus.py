@@ -22,6 +22,7 @@ def ModusPonens():
     KB.add(sentence1)
     KB.add(sentence2)
 
+    print "Truth Table Enumeration Method"
     print "Models that satisfy the Knowledge Base:"
     models_from_KB = KB.find_KB_models()
     print models_from_KB
@@ -43,6 +44,13 @@ def ModusPonens():
         print "YES, because Models(KnowledgeBase) is a subset of Models(alpha)"
     else:
         print "NO, because Models(KnowledgeBase) is NOT a subset of Models(alpha)"
+
+    print "\nWalkSAT Method"
+
+    KB.add(alpha)
+    print "Is there a model that satisfies all sentences after trying 10,000 times?"
+    print "YES" if KB.walk_SAT(.5,10000) else "NO"
+
 
 def unary(p):
     return ComplexSentence(0,[p])

@@ -11,6 +11,9 @@ class KnowledgeBase(object):
     def __init__(self):
         self.sentences = [] # will be a list of sentences or clauses
         self.SymbolTable = HashTable(10) # will be a HashTable that relates strings to Symbols
+
+    def delete_last_sentence(self):
+        self.sentences.pop()
     
     def build_models(self):
         """
@@ -86,7 +89,8 @@ class KnowledgeBase(object):
 
             if check: # a model satisfies the sentence
                 print "a model satisfies the sentences"
-                return model
+                print model
+                return True
             else:
                 k = np.random.randint(0, len(list_of_unsatisfied_clauses))
                 index_of_sentence = list_of_unsatisfied_clauses[k]
