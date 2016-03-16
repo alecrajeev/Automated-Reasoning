@@ -2,7 +2,6 @@ import numpy as np
 from KnowledgeBase import KnowledgeBase
 from Symbol import Symbol
 from HashTable import HashTable
-
 from Sentence import Sentence
 from ComplexSentence import ComplexSentence
 
@@ -11,8 +10,6 @@ def ModusPonens():
     
     p = KB.intern("P")
     q = KB.intern("Q")
-    # k = KB.intern("K")
-    # j = KB.intern("J")
 
     KB.build_models()
 
