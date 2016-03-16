@@ -10,7 +10,8 @@ def ModusPonens():
     
     p = KB.intern("P")
     q = KB.intern("Q")
-    k = KB.intern("K")
+    # k = KB.intern("K")
+    # j = KB.intern("J")
 
     KB.build_models()
 
@@ -20,7 +21,7 @@ def ModusPonens():
     KB.add(sentence1)
     KB.add(sentence2)
 
-    KB.check_models(3)
+    print KB.check_models()
     
     
 
