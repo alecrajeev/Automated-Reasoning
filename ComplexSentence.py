@@ -16,8 +16,12 @@ class ComplexSentence(object):
             self.sentenceRHS = parts[1]
 
     def isSatisfiedBy(self, model, SymbolTable):
-
-        value = None
+        """
+        This checks whether a particular model will be satisfied by that sentence.
+        If the grammar_type < 2, then it's just a simple unary sentence.
+        If the grammar_type >= 2, then it's a compound sentence and recusively calls the lhs and rhs.
+        The grammar_type will also specify whether it is and, or, implication, etc.
+        """
 
         if self.grammar_type < 2: # unary 
             if self.grammar_type == 0: # positive
