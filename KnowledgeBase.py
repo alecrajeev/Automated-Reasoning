@@ -1,6 +1,5 @@
 from Symbol import Symbol
 from Sentence import Sentence
-from Model import Model
 from HashTable import HashTable
 
 

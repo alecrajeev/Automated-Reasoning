@@ -3,6 +3,7 @@ from KnowledgeBase import KnowledgeBase
 from Symbol import Symbol
 from Sentence import Sentence
 from Implication import Implication
+from ModelTable import ModelTable
 from Model import Model
 from HashTable import HashTable
 
@@ -12,7 +13,6 @@ def ModusPonens():
     p = KB.intern("P")
     q = KB.intern("Q")
     k = KB.intern("K")
-    J = KB.intern("J")
 
     sentence1 = Sentence(p)
     sentence2 = Implication(p,q)
@@ -23,10 +23,15 @@ def ModusPonens():
     scount = KB.SymbolTable.key_count
     symbol_int_list = KB.SymbolTable.list_of_ints
 
-    M = Model(scount, symbol_int_list)
-    # print symbol_int_list
+    M = ModelTable(scount, symbol_int_list)
 
-    print M.ModelTable
+    print M.Table
+
+    model_list = [None]*(2**scount)
+    for i in xrange(0, 2**scount):
+        model_list[i] = Model(M.Table[i])
+
+    print model_list[7].model
 
     
     
