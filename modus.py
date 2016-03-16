@@ -1,9 +1,13 @@
 import numpy as np
 from KnowledgeBase import KnowledgeBase
 from Symbol import Symbol
+from HashTable import HashTable
+
 from Sentence import Sentence
 from Implication import Implication
-from HashTable import HashTable
+from Negation import Negation
+
+from ComplexSentence import ComplexSentence
 
 def ModusPonens():
     KB = KnowledgeBase()
@@ -15,17 +19,17 @@ def ModusPonens():
 
     KB.build_models()
 
-    sentence1 = Sentence(p)
-    sentence2 = Implication(p,q)
+    # sentence1 = ComplexSentence(0,[p])
+    sentence2 = ComplexSentence(4,[ComplexSentence(0,[p]),ComplexSentence(0,[q])])
 
-    KB.add(sentence1)
+    # KB.add(sentence1)
     KB.add(sentence2)
 
     print "Models that satisfy the Knowledge Base:"
     models_from_KB = KB.find_KB_models()
     print models_from_KB
 
-    alpha = Sentence(q)
+    alpha = ComplexSentence(4,[ComplexSentence(0,[q]),ComplexSentence(0,[p])])
 
     print "Models that satisfy alpha:"
     models_from_alpha = KB.verify(alpha)
