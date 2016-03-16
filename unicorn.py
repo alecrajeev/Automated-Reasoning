@@ -35,15 +35,16 @@ def Wumpus():
     KB.add(sentence3)
     KB.add(sentence4)
 
-    print "Can you prove the unicorn is mythical?"
-    print "YES" if check_alpha(KB, unary(myth)) else "NO"
+    # print "Can you prove the unicorn is mythical?"
+    # print "YES" if check_alpha(KB, unary(myth)) else "NO"
 
-    print "Can you prove the unicorn is magical?"
-    print "YES" if check_alpha(KB, unary(magic)) else "NO"
+    # print "Can you prove the unicorn is magical?"
+    # print "YES" if check_alpha(KB, unary(magic)) else "NO"
 
-    print "Can you prove the unicorn is horned?"
-    print "YES" if check_alpha(KB, unary(horn)) else "NO"
+    # print "Can you prove the unicorn is horned?"
+    # print "YES" if check_alpha(KB, unary(horn)) else "NO"
 
+    KB.add(negation(magic))
     KB.test()
 
 def check_alpha(KB, alpha):

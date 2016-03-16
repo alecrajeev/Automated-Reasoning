@@ -104,15 +104,16 @@ class KnowledgeBase(object):
                 else:
                     id_of_symbol_chosen = self.get_maximize_satisfied_clauses(list_of_symbol_ids, model)
 
+        return "failure"
+
     def test(self):
-        print self.sentences[0]
-        print self.get_all_symbols_from_sentence(self.sentences[1])
+        print self.walk_SAT(.5, 1000)
 
     def get_maximize_satisfied_clauses(self, list_of_symbol_ids, model):
         number_of_satisfied_clauses = np.zeros(len(list_of_symbol_ids), dtype=np.int16)
 
         for i in xrange(0, len(list_of_symbol_ids)):
-            temp_model = model.deep_copy()
+            temp_model = np.copy(model)
             self.flip_sign(temp_model,list_of_symbol_ids[i])
             for j in xrange(0, len(self.sentences)):
                 if self.sentences[j].isSatisfiedBy(temp_model, self.SymbolTable):
@@ -130,6 +131,7 @@ class KnowledgeBase(object):
         list_of_symbol_ids = []
         for i in xrange(0, len(list_of_symbols)):
             list_of_symbol_ids.append(self.SymbolTable.get(list_of_symbols[i]))
+        return list_of_symbol_ids
 
     def get_all_symbols_from_sentence(self, sen):
         if sen.grammar_type < 2:
