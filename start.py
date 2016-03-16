@@ -15,7 +15,7 @@ def ModusPonens():
 
     KB.build_models()
 
-    sentence1 = Sentence(q)
+    sentence1 = Sentence(p)
     sentence2 = Implication(p,q)
 
     KB.add(sentence1)
