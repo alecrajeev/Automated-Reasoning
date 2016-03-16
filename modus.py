@@ -43,13 +43,13 @@ def ModusPonens():
     if np.size(intersection) == np.size(models_from_KB):
         print "YES, because Models(KnowledgeBase) is a subset of Models(alpha)"
     else:
-        print "NO, because Models(KnowledgeBase) is NOT a subset of Models(alpha)"
+        print "NO, because Models(KnowledgeBase) is NOT a subset of Models(alpha). It is inconclusive."
 
     print "\nWalkSAT Method"
 
     KB.add(negation(q))
     print "Is there a model that satisfies all sentences after trying 10,000 times?"
-    print "YES" if KB.walk_SAT(.5,10000) else "NO. Since no model was found in the alloted trials, " + \
+    print "YES. Thus it is inconclusive." if KB.walk_SAT(.5,10000) else "NO. Since no model was found in the alloted trials, " + \
     "it is likely that no model exists that satifies all the sentences. Therefore one can conclude " + \
     "it is most likely that the Know Base entails the alpha. \nThus KB entails q (probably)"
 
@@ -60,17 +60,17 @@ def unary(p):
 def negation(p):
     return ComplexSentence(1, [p])
 
-def conjuntion(p,q):
-    return ComplexSentence(2,[ComplexSentence(0,[p]),ComplexSentence(0,[q])])
+def conjunction(p,q):
+    return ComplexSentence(2,[p,q])
 
-def disjuntion(p,q):
-    return ComplexSentence(3,[ComplexSentence(0,[p]),ComplexSentence(0,[q])])
+def disjunction(p,q):
+    return ComplexSentence(3,[p,q])
     
 def implies(p,q):
-    return ComplexSentence(4,[ComplexSentence(0,[p]),ComplexSentence(0,[q])])
+    return ComplexSentence(4,[p,q])
 
 def biconditional(p,q):
-    return ComplexSentence(5,[ComplexSentence(0,[p]),ComplexSentence(0,[q])])
+    return ComplexSentence(5,[p,q])
 
 
 

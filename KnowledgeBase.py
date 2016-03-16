@@ -80,6 +80,18 @@ class KnowledgeBase(object):
         return list_of_verified_models
 
     def walk_SAT(self, p, max_flips):
+        """
+        This is uses the WalkSAT method to find a model that satisfies all the conditions.
+        If no models satsify all the conditions, then it returns false.
+        This first randomly chooses a model. Then checks if it satisfies all the clauses.
+        If it does not, then it selecs a random clause that is not satsfied.
+        Then with a probability of p it selects a random symbol in that clause and flips it.
+        If the probability p is not randomly satisfied, then it uses flips whichever symbol
+        maximizes the number of satisfied clauses.
+
+        It loops through 10,000 times, and if no model satisfies everything it assumes that,
+        entailment is true. If it does find a model, then entailment is false.
+        """
 
         k = np.random.randint(0, len(self.model_list))
 

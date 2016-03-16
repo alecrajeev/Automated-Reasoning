@@ -38,21 +38,21 @@ def Unicorn():
     print "Truth Table Enumeration"
     print "Can you prove the unicorn is mythical?"
     print "\nYES. You can prove the unicorn is mythical. Since models(KB) is a subset of models(alpha)" if check_alpha(KB, unary(myth)) \
-    else "\nNO. You cannot prove the unicorn is mythical. Since models(KB) is not a subset of models(alpha)"
+    else "\nNO. You cannot prove the unicorn is mythical. Since models(KB) is not a subset of models(alpha). It is inconclusive."
 
     print "\nCan you prove the unicorn is magical?"
     print "\nYES. You can prove the unicorn is magical. Since models(KB) is a subset of models(alpha)" if check_alpha(KB, unary(magic)) \
-    else "\nNO. You cannot prove the unicorn is magical. Since models(KB) is not a subset of models(alpha)"
+    else "\nNO. You cannot prove the unicorn is magical. Since models(KB) is not a subset of models(alpha). It is inconclusive."
 
     print "\nCan you prove the unicorn is horned?"
     print "\nYES. You can prove the unicorn is horned. Since models(KB) is a subset of models(alpha)" if check_alpha(KB, unary(horn)) \
-    else "\nNO. You cannot prove the unicorn is horned. Since models(KB) is not a subset of models(alpha)"
+    else "\nNO. You cannot prove the unicorn is horned. Since models(KB) is not a subset of models(alpha). It is inconclusive."
 
     print "\n\nWalkSAT Method"
     print "\nIs there a model that satisfies all sentences after trying 10,000 times for unicorn being mythical?"
     KB.add(negation(myth))
     print "YES. Since there is a model that satifies all the sentences, so you can NOT concluded that the Knowledge Base entails alpha." +\
-    " Thus you can NOT conclude that the unicorn is mythical." if KB.walk_SAT(.5,10000) else "NO. Since no model was found in the alloted trials, " + \
+    " Thus you can NOT conclude that the unicorn is mythical. It is inconclusive." if KB.walk_SAT(.5,10000) else "NO. Since no model was found in the alloted trials, " + \
     "it is likely that no model exists that satifies all the sentences. Therefore one can conclude " + \
     "it is most likely that the Know Base entails the alpha. \nThus the unicorn is mythical (probably)"
     KB.delete_last_sentence()
@@ -60,7 +60,7 @@ def Unicorn():
     print "\nIs there a model that satisfies all sentences after trying 10,000 times for unicorn being magical?"
     KB.add(negation(magic))
     print "YES. Since there is a model that satifies all the sentences, so you can NOT concluded that the Knowledge Base entails alpha." +\
-    " Thus you can NOT conclude that the unicorn is magical." if KB.walk_SAT(.5,10000) else "NO. Since no model was found in the alloted trials, " + \
+    " Thus you can NOT conclude that the unicorn is magical. It is inconclusive." if KB.walk_SAT(.5,10000) else "NO. Since no model was found in the alloted trials, " + \
     "it is likely that no model exists that satifies all the sentences. Therefore one can conclude " + \
     "it is most likely that the Know Base entails the alpha. \nThus the unicorn is magical (probably)"
     KB.delete_last_sentence()
@@ -68,7 +68,7 @@ def Unicorn():
     print "\nIs there a model that satisfies all sentences after trying 10,000 times for unicorn being horned?"
     KB.add(negation(horn))
     print "YES. Since there is a model that satifies all the sentences, so you can NOT concluded that the Knowledge Base entails alpha." +\
-    " Thus you can NOT conclude that the unicorn is horned." if KB.walk_SAT(.5,10000) else "NO. Since no model was found in the alloted trials, " + \
+    " Thus you can NOT conclude that the unicorn is horned. It is inconclusive." if KB.walk_SAT(.5,10000) else "NO. Since no model was found in the alloted trials, " + \
     "it is likely that no model exists that satifies all the sentences. Therefore one can conclude " + \
     "it is most likely that the Know Base entails the alpha. \nThus the unicorn is horned (probably)"
     KB.delete_last_sentence()
