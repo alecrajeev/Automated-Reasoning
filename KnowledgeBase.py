@@ -18,7 +18,7 @@ class KnowledgeBase(object):
     """
     def __init__(self):
         self.sentences = [] # will be a list of sentences or clauses
-        self.SymbolTable = HashTable(10) # will be a HashTable that relates strings to Symbols
+        self.SymbolTable = HashTable(13) # will be a HashTable that relates strings to Symbols
 
     def delete_last_sentence(self):
         self.sentences.pop()

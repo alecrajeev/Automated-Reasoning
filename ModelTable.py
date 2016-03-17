@@ -7,7 +7,7 @@ class ModelTable(object):
     There will be 2^n models.
     The first SymbolCount number of columns is that symbol's id.
     The second set of SymbolCount columns is that symbol's value for a specific id.
-    Essentially each row in Table is a separate model.
+    Essentially each row in Table is a separate model, so 2^n rows.
     """
 
     def __init__(self, SymbolCount, symbol_int_list):

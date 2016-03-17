@@ -19,7 +19,10 @@ Symbol.py --------------- Python class file that is used to give a particular sy
 HashTable.py ------------ Python class file that gives that is a hash table with separate chaining.
 Node.py ----------------- Python class file that is used for separate chaining in the hash table.
 
-
+The structure of having a KnowledgeBase class, Sentence class, Complex sentence class,
+and symbol class along with using a Hash Table was influence by Prof. Ferguson's 
+Java code that he uploaded. Inheritance and Interfaces were not used here, 
+so it is not exactly the same as what he did, but the overall theme is similar.
 
 3. To run my project, you must have python 2 and numpy installed.
 All the class files like KnowledgeBase, Model, Sentence, etc. must be in the main directory.

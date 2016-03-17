@@ -142,7 +142,7 @@ def Liar():
 
     print "\n\nWalkSAT Method"
 
-    n = 100
+    n = 1000
 
     KB.add(unary(A))
     print "Inconclusive on A." if KB.walk_SAT(.5, n) else "Can likely conclude that KB entails not(A). Amy is probably a liar."
