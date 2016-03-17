@@ -4,7 +4,8 @@ import numpy as np
 
 class ComplexSentence(object):
     """
-    This Sentence consists of two atoms. lhs <-> rhs
+    This ComplexSentence will consist of a single Sentence object if it is unary or negation.
+    It will consist of two Setence objecs, LHS and RHS if it is a more complex sentence like implication or biconditional.
     """
 
     def __init__(self, grammar_type, parts):
