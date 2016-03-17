@@ -14,7 +14,7 @@ def ModusPonens():
     KB.build_models()
 
     sentence1 = unary(p)
-    sentence2 = implies(p,q)
+    sentence2 = implies(unary(p), unary(q))
 
     KB.add(sentence1)
     KB.add(sentence2)
