@@ -1,7 +1,6 @@
 import numpy as np
 from KnowledgeBase import KnowledgeBase
 from HashTable import HashTable
-
 from Symbol import Symbol
 from Sentence import Sentence
 from ComplexSentence import ComplexSentence

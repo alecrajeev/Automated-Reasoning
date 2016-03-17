@@ -2,7 +2,6 @@ import numpy as np
 from KnowledgeBase import KnowledgeBase
 from Symbol import Symbol
 from HashTable import HashTable
-
 from Sentence import Sentence
 from ComplexSentence import ComplexSentence
 
